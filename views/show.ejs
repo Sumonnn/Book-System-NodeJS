@@ -1,0 +1,49 @@
+<%- include('partiels/header.ejs') %>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+<link rel="stylesheet" href="/stylesheets/show.css">
+<%- include('partiels/nav.ejs') %>
+
+
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <% bookList.forEach((book) => { %>
+            <div class="swiper-slide">
+                <h3><span>Author Name is : </span><%= book.author %></h3>
+                <h3><span>country Name is : </span><%= book.country %></h3>
+                <h3><span>imageLink : </span> <%= book.imageLink %></h3>
+                <h3><span>language is : </span><%= book.language %></h3>
+                <h3><span>link : </span><%= book.link %></h3>
+                <h3><span>Number of Pages : </span><%= book.pages %></h3>
+                <h3><span>Title of this book : </span><%= book.title %></h3>
+                <h3><span>Year of Publication : </span><%= book.year %></h3>
+            </div>
+        <% }); %>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      centeredSlides: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+<%- include('partiels/footer.ejs') %>

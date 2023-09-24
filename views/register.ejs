@@ -1,0 +1,40 @@
+<%- include('partiels/header.ejs') %>
+<link rel="stylesheet" href="/stylesheets/register.css">
+<%- include('partiels/nav.ejs') %>
+<div class="main">
+    <form method="post" action="/save">
+        <input class="form-control" type="text" placeholder="Author" name="author">
+
+        <select class="form-control" name="country">
+            <option class="" value="">Select Country</option>
+            <% countrylist.forEach((country)=> {%>
+                <option value="<%= country %>"><%= country %></option>
+            <% }); %>  
+        </select>
+
+        <input class="form-control" type="text" placeholder="imageLink" name="imageLink">
+
+        <select class="form-control" name="language">
+            <option class="" value="">Select Language</option>  
+            <% languageslist.forEach((l)=>{%>
+              <option value="<%= l.name %>"><%= l.name %></option>
+            <%}) %>         
+        </select>
+
+        <input class="form-control" type="text" placeholder="link" name="link">
+
+        <input class="form-control" type="number" placeholder="Number of Pages" name="pages">
+
+        <input class="form-control" type="text" placeholder="title" name="title">
+
+        <input class="form-control" type="text" placeholder="Year of Publication" name="year">
+
+        <button onclick="showAlert()" class="btn btn-success">Submit</button>
+    </form>
+</div>
+<script>
+    function showAlert(){
+        alert('Data Saved in json form!!');
+    }
+</script>
+<%- include('partiels/footer.ejs') %>
