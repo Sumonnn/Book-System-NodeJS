@@ -2,11 +2,21 @@
     {
         "author": "Chinua Achebe",
         "country": "Nigeria",
-        "imageLink": "images/things-fall-apart.jpg",
+        "imageLink": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRABo0ZR2DFUPwM1Z7S9pntTvKPm7BP53F-HIvi1qJIlSwyl5uFK0JeWZ9g5kL7XgWi6KRyvQQzbrTsLu8Xv1lFlwLTINaFaspob1D_5KmEe8thAmfrH5qllw&usqp=CAE",
         "language": "English",
         "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
         "pages": 209,
         "title": "Things Fall Apart",
         "year": 1958
+    },
+    {
+        "author": "sumon",
+        "country": "India",
+        "imageLink": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcS3M0MR_7haXYPZaqJRTMPKMF8tIlnqv-TxNKvUMIIpRijRQQF7BRuqeJIspAJfNvZd7xQ3ue3VAFWahfGGF2lmCfDfwdXiE1-D-tYCYz3CK51Ce1KLPUunXA&usqp=CAE",
+        "language": "Bengali - বাংলা",
+        "link": "",
+        "pages": "200",
+        "title": "Motivation",
+        "year": "2002"
     }
 ]
