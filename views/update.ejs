@@ -1,12 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <p><%= JSON.stringify(bookList) %></p>
-</body>
-</html>
+<%- include('partiels/header.ejs') %>
+    <link rel="stylesheet" href="/stylesheets/register.css">
+    <%- include('partiels/nav.ejs') %>
+        <div class="main">
+            <form method="post" action="/edit/<%= index %>">
+                <h3>UPDATE-TABLE</h3>
+                <input value="<%=bookList.author%>" class="form-control" type="text" placeholder="Author" name="author">
+
+                <select class="form-control" name="country">
+                    <option class="" value="">Select Country</option>
+                    <% countrylist.forEach((country)=> {%>
+                        <% if(bookList.country===country) {%>
+                            <option selected value="<%= country %>">
+                                <%= country %>
+                            </option>
+                            <%}else{%>
+                                <option value="<%= country %>">
+                                    <%= country %>
+                                </option>
+                                <%}%>
+                                    <% }); %>
+                </select>
+
+                <input value="<%= bookList.imageLink %>" class="form-control" type="text" placeholder="imageLink"
+                    name="imageLink">
+
+                <select class="form-control" name="language">
+                    <option class="" value="">Select Language</option>
+                    <% languageslist.forEach((l)=>{%>
+                        <% if(bookList.language===l.name){ %>
+                            <option selected value="<%= l.name %>">
+                                <%= l.name %>
+                            </option>
+                            <%}else{%>
+                                <option value="<%= l.name %>">
+                                    <%= l.name %>
+                                </option>
+                                <%}%>
+                                    <%}) %>
+                </select>
+
+                <input value="<%= bookList.link %>" class="form-control" type="text" placeholder="link" name="link">
+
+                <input value="<%= bookList.pages %>" class="form-control" type="number" placeholder="Number of Pages"
+                    name="pages">
+
+                <input value="<%= bookList.title %>" class="form-control" type="text" placeholder="title" name="title">
+
+                <input value="<%= bookList.year %>" class="form-control" type="text" placeholder="Year of Publication"
+                    name="year">
+
+                <div style="align-items: center;justify-self: center;gap: 3vw;" class="d-flex">
+                    <button onclick="showAlert()" class="btn mb-4 btn-success">UPDATE</button>
+                    <a class="btn btn-outline-primary mt-2" href="/show">Back</a>
+                </div>
+            </form>
+        </div>
+        <script>
+            function showAlert() {
+                alert('Data Update in json form!!');
+            }
+        </script>
+        <%- include('partiels/footer.ejs') %>

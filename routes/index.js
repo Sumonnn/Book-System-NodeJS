@@ -14,20 +14,20 @@ function WriteBooks(book) {
 }
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
   res.render('index');
 });
 
 //register route
-router.get('/register',(req,res)=>{
-  res.render('register.ejs',{
-    countrylist:countrylist,
-    languageslist:languageslist,
-});
+router.get('/register', (req, res) => {
+  res.render('register.ejs', {
+    countrylist: countrylist,
+    languageslist: languageslist,
+  });
 })
 
 //data save route
-router.post('/save',(req,res)=>{
+router.post('/save', (req, res) => {
   const bookList = Books();
   bookList.push(req.body);
   WriteBooks(bookList);
@@ -35,28 +35,37 @@ router.post('/save',(req,res)=>{
 })
 
 //books data show route
-router.get('/show',(req,res)=>{
+router.get('/show', (req, res) => {
   const bookList = Books();
-  res.render('show.ejs',{
-    bookList:bookList,
+  res.render('show.ejs', {
+    bookList: bookList,
   });
 })
 
 //book data delete route
-router.get('/delete/:index',(req,res)=>{
+router.get('/delete/:index', (req, res) => {
   const bookList = Books();
-  bookList.splice(req.params.index,1);
-  WriteBooks(bookList);  
+  bookList.splice(req.params.index, 1);
+  WriteBooks(bookList);
   res.redirect('/show');
-}) 
+})
 
-//book data update route
-router.get('/update/:index',(req,res)=>{
-  // console.log(req.params.index);
+//book data show update.ejs route
+router.get('/update/:index', (req, res) => {
   const bookList = Books();
-  res.render('update.ejs',{
-     bookList: bookList[req.params.index],
+  res.render('update.ejs', {
+    index: req.params.index,
+    bookList: bookList[req.params.index],
+    countrylist: countrylist,
+    languageslist: languageslist,
   })
-  // console.log(bookList[req.params.index]);
+})
+
+//book data update feature
+router.post('/edit/:index', (req, res) => {
+  const bookList = Books();
+  bookList[req.params.index] = req.body;
+  WriteBooks(bookList);
+  res.redirect('/show');
 })
 module.exports = router;
