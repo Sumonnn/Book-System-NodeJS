@@ -52,6 +52,11 @@ router.get('/delete/:index',(req,res)=>{
 
 //book data update route
 router.get('/update/:index',(req,res)=>{
-  
+  // console.log(req.params.index);
+  const bookList = Books();
+  res.render('update.ejs',{
+     bookList: bookList[req.params.index],
+  })
+  // console.log(bookList[req.params.index]);
 })
 module.exports = router;
